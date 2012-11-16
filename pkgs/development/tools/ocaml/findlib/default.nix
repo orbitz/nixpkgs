@@ -36,13 +36,21 @@ stdenv.mkDerivation {
     addOCamlPath () {
         if test -d "''$1/lib/ocaml/${ocaml_version}/site-lib"; then
             export OCAMLPATH="''${OCAMLPATH}''${OCAMLPATH:+:}''$1/lib/ocaml/${ocaml_version}/site-lib/"
+            for d in $1/lib/ocaml/${ocaml_version}/site-lib/*
+	    do
+	      if [ -d "$d" ]
+	      then
+	        CAML_LD_LIBRARY_PATH="''${CAML_LD_LIBRARY_PATH}''${CAML_LD_LIBRARY_PATH:+:}''$d/"
+   	      fi
+            done
+            export CAML_LD_LIBRARY_PATH
         fi
         export OCAMLFIND_DESTDIR="''$out/lib/ocaml/${ocaml_version}/site-lib/"
         if test -n "$createFindlibDestdir"; then
           mkdir -p $OCAMLFIND_DESTDIR
         fi
     }
-    
+
     envHooks=(''${envHooks[@]} addOCamlPath)
   '';
 

@@ -2583,6 +2583,18 @@ let
     ocaml_extlib = callPackage ../development/ocaml-modules/extlib { };
 
     pycaml = callPackage ../development/ocaml-modules/pycaml { };
+
+
+    opam_type_conv_108_07_01 = callPackage ../development/ocaml-modules/opam-modules/type_conv/108.07.01.nix {};
+    opam_bin_prot_108_07_01 = callPackage ../development/ocaml-modules/opam-modules/bin_prot/108.07.01.nix {};
+    opam_fieldslib_108_07_01 = callPackage ../development/ocaml-modules/opam-modules/fieldslib/108.07.01.nix {};
+    opam_pa_ounit_108_07_01 = callPackage ../development/ocaml-modules/opam-modules/pa_ounit/108.07.01.nix {};
+    opam_pipebang_108_07_01 = callPackage ../development/ocaml-modules/opam-modules/pipebang/108.07.01.nix {};
+    opam_sexplib_108_07_01 = callPackage ../development/ocaml-modules/opam-modules/sexplib/108.07.01.nix {};
+    opam_variantslib_108_07_01 = callPackage ../development/ocaml-modules/opam-modules/variantslib/108.07.01.nix {};
+    opam_res = callPackage ../development/ocaml-modules/opam-modules/res {};
+    opam_comparelib_108_07_01 = callPackage ../development/ocaml-modules/opam-modules/comparelib/108.07.01.nix {};
+    opam_core_108_07_01 = callPackage ../development/ocaml-modules/opam-modules/core/108.07.01.nix {};
   };
 
   ocamlPackages = recurseIntoAttrs ocamlPackages_3_12_1;
