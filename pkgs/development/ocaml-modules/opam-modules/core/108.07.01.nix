@@ -12,6 +12,8 @@ stdenv.mkDerivation {
     md5 = "98cc925a06502cab67669294fb557714";
   };
 
+  patches = [ ./link_rt.patch ];
+
   propagatedBuildInputs = [ocaml findlib opam_type_conv_108_07_01 opam_bin_prot_108_07_01 opam_fieldslib_108_07_01 opam_pa_ounit_108_07_01 opam_pipebang_108_07_01 opam_sexplib_108_07_01 opam_variantslib_108_07_01 opam_res ounit opam_comparelib_108_07_01];
 
   createFindlibDestdir = true;

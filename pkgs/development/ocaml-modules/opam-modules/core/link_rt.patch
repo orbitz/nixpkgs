@@ -1,0 +1,17 @@
+--- a/myocamlbuild.ml
++++ b/myocamlbuild.ml
+@@ -604,10 +604,8 @@ let dispatch = function
+ 
+     dispatch_default e;
+ 
+-    if test "ld -lrt -shared -o /dev/null 2>/dev/null" then begin
+-      flag ["ocamlmklib"; "c"]                      (S[A"-lrt"]);
+-      flag ["use_libcore_stubs"; "link"] (S[A"-cclib"; A"-lrt"]);
+-    end
++    flag ["ocamlmklib"; "c"]                      (S[A"-lrt"]);
++    flag ["use_libcore_stubs"; "link"] (S[A"-cclib"; A"-lrt"]);
+   | e -> dispatch_default e
+ 
+ let () = Ocamlbuild_plugin.dispatch dispatch
+
+
