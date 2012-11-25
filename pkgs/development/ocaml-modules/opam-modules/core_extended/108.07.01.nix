@@ -10,6 +10,8 @@ stdenv.mkDerivation {
 
   propagatedBuildInputs = [ocaml findlib ocaml_pcre opam_core_108_07_01];
 
+  propagatedUserEnvPackages = [ocaml findlib ocaml_pcre opam_core_108_07_01];
+
   createFindlibDestdir = true;
 
   meta = {
