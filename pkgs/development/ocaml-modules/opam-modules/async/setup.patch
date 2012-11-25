@@ -1,0 +1,39 @@
+--- a/setup.ml
++++ b/setup.ml
+@@ -5950,13 +5950,13 @@ let protectx x ~f ~finally =
+   finally x; r
+ 
+ let rm_rf dir =
+-  ignore (Printf.ksprintf Sys.command "/bin/rm -rf %S" dir : int)
++  ignore (Printf.ksprintf Sys.command "rm -rf %S" dir : int)
+ 
+ let temp_dir ?(in_dir = Filename.temp_dir_name) prefix suffix =
+   let base = Filename.concat in_dir prefix in
+   let rec loop i =
+      let dir = base ^ string_of_int i ^ suffix in
+-     let ret = Printf.ksprintf Sys.command "/bin/mkdir %S 2>/dev/null" dir in
++     let ret = Printf.ksprintf Sys.command "mkdir %S 2>/dev/null" dir in
+      if ret = 0 then dir
+      else if Sys.file_exists dir then loop (i + 1)
+      else failwith ("mkdir failed on " ^ dir)
+@@ -6012,15 +6012,15 @@ let () =
+         let touch = Filename.concat dir "touch" in
+         protectx (open_out touch) ~finally:close_out_noerr ~f:(fun oc ->
+           output_string oc "\
+-#!/bin/bash
++#!/bin/sh
+ if [[ \"$(basename \"$1\")\" == async.mli ]]; then
+   exit 0
+ else
+-  exec /bin/touch \"$@\"
++  exec touch \"$@\"
+ fi
+ ");
+ 
+-          if 0 <> Printf.ksprintf Sys.command "/bin/chmod +x %S" touch then
++          if 0 <> Printf.ksprintf Sys.command "chmod +x %S" touch then
+             failwith ("can't chmod " ^ touch ^ "to be executable");
+ 
+           Sys.command
+
+

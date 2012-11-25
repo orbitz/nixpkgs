@@ -2596,6 +2596,10 @@ let
     opam_comparelib_108_07_01 = callPackage ../development/ocaml-modules/opam-modules/comparelib/108.07.01.nix {};
     opam_core_108_07_01 = callPackage ../development/ocaml-modules/opam-modules/core/108.07.01.nix {};
     opam_core_extended_108_07_01 = callPackage ../development/ocaml-modules/opam-modules/core_extended/108.07.01.nix {};
+    opam_async_core_108_07_01 = callPackage ../development/ocaml-modules/opam-modules/async_core/108.07.01.nix {};
+    opam_async_unix_108_07_01 = callPackage ../development/ocaml-modules/opam-modules/async_unix/108.07.01.nix {};
+    opam_async_extra_108_07_01 = callPackage ../development/ocaml-modules/opam-modules/async_extra/108.07.01.nix {};
+    opam_async_108_07_01 = callPackage ../development/ocaml-modules/opam-modules/async/108.07.01.nix {};
   };
 
   ocamlPackages = recurseIntoAttrs ocamlPackages_3_12_1;
