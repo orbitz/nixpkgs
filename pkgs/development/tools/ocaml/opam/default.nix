@@ -3,7 +3,7 @@
 let
   srcs = {
     cudf = fetchurl {
-      url = "http://gforge.info.ucl.ac.be/frs/download.php/190/cudf-0.6.3.tar.gz";
+      url = "https://gforge.inria.fr/frs/download.php/31543/cudf-0.6.3.tar.gz";
       sha256 = "6e9f1bafe859df85c854679e2904a8172945d2bf2d676c8ae3ecb72fe6de0665";
     };
     extlib = fetchurl {
